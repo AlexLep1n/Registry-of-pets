@@ -9,6 +9,11 @@ public class PetAnimal extends AnimalAbs implements Animal {
         this.type = "PetAnimal";
     }
 
+    public PetAnimal(String name) {
+        super(name);
+        this.type = "PetAnimal";
+    }
+
     public String getType() {
         return type;
     }

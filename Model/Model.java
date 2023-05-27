@@ -5,41 +5,54 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Model {
-    private List<String> commands = new LinkedList<>();
 
     public Animal add() {
+        List<String> commands = new LinkedList<>();
         Animal animal = null;
         Scanner addScanner = new Scanner(System.in);
         System.out.println("\nВыберите животное из списка, которое хотите добавить!");
         System.out.println("1. Dog\n2. Cat\n3. Hamster\n4. Camel\n5. Horse\n6. Donkey\n");
-        System.out.printf("Введите его номер: \n");
+        System.out.printf("Введите его номер: ");
         int newAnimal = addScanner.nextInt();
-        switch (newAnimal) {
-            case 1:
-                commands.add("Up");
-                animal = new PetAnimal("Dog", commands);
-                break;
-            case 2:
-                commands.add("Meow");
-                animal = new PetAnimal("Cat", commands);
-                break;
-            case 3:
-                commands.add("Run");
-                animal = new PetAnimal("Hamster", commands);
-                break;
-            case 4:
-                commands.add("Sit");
-                animal = new PackAnimal("Camel", commands);
-                break;
-            case 5:
-                commands.add("Gallop");
-                animal = new PackAnimal("Horse", commands);
-                break;
-            case 6:
-                commands.add("Roam");
-                animal = new PackAnimal("Donkey", commands);
-                break;
+        try (Counter counter = new Counter()) {
+            switch (newAnimal) {
+                case 1:
+                    animal = new PetAnimal("Dog", commands);
+                    animal.setCommands("Up");
+                    counter.add();
+                    break;
+                case 2:
+                    animal = new PetAnimal("Cat", commands);
+                    animal.setCommands("Meow");
+                    counter.add();
+                    break;
+                case 3:
+                    animal = new PetAnimal("Hamster", commands);
+                    animal.setCommands("Run");
+                    counter.add();
+                    break;
+                case 4:
+                    animal = new PackAnimal("Camel", commands);
+                    animal.setCommands("Sit");
+                    counter.add();
+                    break;
+                case 5:
+                    animal = new PackAnimal("Horse", commands);
+                    animal.setCommands("Gallop");
+                    counter.add();
+                    break;
+                case 6:
+
+                    animal = new PackAnimal("Donkey", commands);
+                    animal.setCommands("Roam");
+                    counter.add();
+                    break;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Counter isn`t close!");
         }
+
         return animal;
     }
 

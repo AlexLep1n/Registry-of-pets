@@ -1,8 +1,6 @@
 package Model;
 
-import java.io.Closeable;
-
-public class Counter extends Exception implements Closeable {
+public class Counter extends Exception implements AutoCloseable {
     private int counter;
     private boolean closeable;
 
@@ -11,7 +9,7 @@ public class Counter extends Exception implements Closeable {
     }
 
     public void close() {
-        if (!closeable) {
+        if (closeable) {
             throw new RuntimeException("Dont close!");
         }
     }
@@ -19,4 +17,5 @@ public class Counter extends Exception implements Closeable {
     public int getCounter() {
         return counter;
     }
+
 }

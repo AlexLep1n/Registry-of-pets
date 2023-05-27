@@ -9,6 +9,5 @@ public class Main {
         View view = new View();
         Presenter presenter = new Presenter(model, view);
         presenter.run();
-
     }
 }

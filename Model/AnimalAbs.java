@@ -12,6 +12,10 @@ public class AnimalAbs implements Animal {
         this.commands = commands;
     }
 
+    public AnimalAbs(String name) {
+        this.name = name;
+    }
+
     @Override
     public String getName() {
         return name;
@@ -32,7 +36,7 @@ public class AnimalAbs implements Animal {
     }
 
     public void setCommands(String command) {
-        this.commands.add(command);
+        commands.add(command);
     }
 
 }

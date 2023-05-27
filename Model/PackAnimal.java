@@ -9,6 +9,11 @@ public class PackAnimal extends AnimalAbs implements Animal {
         this.type = "PackAnimal";
     }
 
+    public PackAnimal(String name) {
+        super(name);
+        this.type = "PackAnimal";
+    }
+
     public String getType() {
         return type;
     }
