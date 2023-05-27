@@ -1,0 +1,48 @@
+1. Используя команду cat в терминале операционной системы Linux, создать
+два файла Домашние животные (заполнив файл собаками, кошками,
+хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
+ослы), а затем объединить их. Просмотреть содержимое созданного файла.
+Переименовать файл, дав ему новое имя (Друзья человека).
+
+	echo "dog, cats, hamsters" > pets
+	echo "horse, camels, donkey" > draft_animals
+	cat pets draft_animals > ppl_friends
+	ls -al
+
+2. Создать директорию, переместить файл туда.	
+	
+	mkdir Animals
+	mv ppl_friends Animals/
+
+
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+
+ 	sudo add-apt-repository 'deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-8.0'
+	Репозиторий: 'deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-8.0'
+	Описание:
+	Archive for codename: bionic components: mysql-8.0
+	Дополнительные сведения: http://repo.mysql.com/apt/ubuntu/
+	Добавление репозитория.
+	Нажмите [ENTER] для продолжения или Ctrl-C для отмены.
+	Adding deb entry to /etc/apt/sources.list.d/archive_uri-http_repo_mysql_com_apt_ubuntu_-jammy.list
+	Adding disabled deb-src entry to /etc/apt/sources.list.d/archive_uri-http_repo_mysql_com_apt_ubuntu_-jammy.list
+	Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+	Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+	Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease
+	Пол:4 http://repo.mysql.com/apt/ubuntu bionic InRelease [20,0 kB]
+	Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease
+	Сущ:6 http://nginx.org/packages/ubuntu jammy InRelease
+	Ошб:4 http://repo.mysql.com/apt/ubuntu bionic InRelease
+
+4. Установить и удалить deb-пакет с помощью dpkg.
+	
+	sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
+	
+	sudo dpkg -r mysql-apt-config
+	(Чтение базы данных … на данный момент установлено 244116 файлов и каталогов.)
+	Удаляется mysql-apt-config (0.8.25-1) …
+
+5. Выложить историю команд в терминале ubuntu
+
+	см. выше.
